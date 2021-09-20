@@ -1,0 +1,39 @@
+MUMT301-2021 Assignment 1
+QUESTIONNAIRE!
+
+The following questionnaire seeks to understand your previous knowledge about some of the concepts that we will learn in class during the coming term.
+
+1. Do you know any programming languages? If you do, which ones?
+
+- Yes,I know C,C++,Java and Python
+
+2. What is your primary computer operating system (OS)?
+
+-MacOS
+
+3. Do you own a smartphone, tablet, or mobile device? What is your favourite OS for mobile devices?
+
+- Yes,I have a smartphone and a tablet and both of these devices are MacOS
+
+4. Do you use any social networking services? If you do, which ones? Why?
+- Yes, Instagram and Twitter.Because I believe they are the most used social networking platforms of the current times
+
+5. Expand the following acronyms and do research about their meaning. You may look them up if you don't know:
+
+    HTTP Hypertext Transfer Protocol
+    REST Representational state transfer
+    API Application Programming Interface
+
+6. Do you play a musical instrument or sing? If so, how much experience do you have?
+-I have been playing guitar for 8 years and I'm currently taking music theory and vocal classes
+7. Can you read music notation? If so, how well?
+-Yes, I can understand what is the key of a certain written music and the notes
+
+8. How large is your personal music collection? Estimate the number of artists, albums, and songs. If instead you listen to music using streaming services, how many playlists, artists, albums, and songs do you have in your account?
+-Thousands since when I'm inspired by  a beat I add that song or the artist to my library
+9. How do you search and find new music?
+-Magazines,streaming services (playlists),friends,blogs
+11. Are you aware of any ways in which artists are dealing with public performances post-COVID? Do you think live performances are essential to your musical experience?
+- There are new covid restrictions.For example no one can dance in a bar or a club and that's hard for a performer since the artist want to see the crowd enjoying their music
+12. Name two musical artists that you like. What do you find interesting about their music that makes you like them?
+-This  is a very difficult  question but after thinking for a while I decided to pick Sade and Stevie Wonder.They were both trailblazers and amazing performers.
