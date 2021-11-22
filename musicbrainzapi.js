@@ -16,7 +16,7 @@ function queryAlbums(artistMBID) {
     let mbBrowse = "release-group?artist=";
     let mbType = "&limit=200";
     let queryURL = mbBaseURL + mbBrowse + artistMBID + mbType;
-    httpGet(Browse, getAlbData);
+    httpGet(queryURL, getAlbData);
 }
 
 function httpGet(theURL, cbFunction) {
