@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+ <head>
     <meta charset="utf-8">
     <title>Assignment 6 MusicBrainz</title>
     <link rel="stylesheet" href="musicbrainz.css">
-</head>
-
+ </head>
 <body>
-
     <h1>Search For An Artist Through MusicBrainz</h1>
-
     <div>
         <form id="artist" method = 'GET'>
-            <label for = 'name'>Search For An Artist</label>
-            <input type = 'text' id = 'name' name = 'artist' >
-            <input type = 'submit' value = 'Get Data'>
+            <label for = "name" >Search For An Artist</label>
+            <input type = "text" name = "artist" id = "name">
+            <input type = "submit" value = "Get Data">
         </form>
     </div>
-    <table id='discography'></table>
+    <table id="discography"></table>
      <script src="musicbrainzapi.js"></script>
 </body>
    
