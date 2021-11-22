@@ -1,8 +1,8 @@
 
 function queryArtist() {
     let params = (new URL(document.location)).searchParams;
-    if (params.has('artist')) {
-        let artistName = params.get('artist');
+    if (params.has("artist")) {
+        let artistName = params.get("artist");
         let mbBaseURL = "https://musicbrainz.org/ws/2/";
         let mbResource = "artist?query=";
         let queryURL = mbBaseURL + mbResource + artistName;
