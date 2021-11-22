@@ -36,8 +36,8 @@ function queryAlbums(artistMBID) {
 function getData(xhttp) {
     let retrievedData = xhttp.responseXML;
     let releases = retrievedData.getElementsByTagName('release-group');
-    let discography = document.getElementById('discography');
-    let album_table = "<table> <tr><th>Album Name</th><th>Released in</th></tr>";
+    let disco = document.getElementById('disco');
+    let album_table = "<table><tr><th>Album Name</th><th>Released in</th></tr>";
     for (i = 0; i < releases.length; i++){
     let call = releases[i];
     let names = call.getElementsByTagName("title")[0].innerHTML;
@@ -45,11 +45,6 @@ function getData(xhttp) {
     album_table += `<tr><td>${names}</td><td>${dates}"</td></tr>`;
 }
 album_table += "</table>";
-
-discography.innerHTML= album_table;
-
-
+disco.innerHTML= album_table;
 }
-
-
 window.onload = queryArtist;
