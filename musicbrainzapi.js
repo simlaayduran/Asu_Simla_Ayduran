@@ -9,7 +9,7 @@ function queryArtist() {
         httpGet(queryURL, getMBID);
     }
 }
-function queryAlbums() {
+function queryAlbums(artistMBID) {
         let mbBaseURL = 'https://musicbrainz.org/ws/2/';
         let mbSearch = 'release-group?artist=';
         let mbType = '&type=album|ep';
