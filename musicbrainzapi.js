@@ -1,14 +1,24 @@
 
-function queryArtist() {
+function queryArtist () {
     let params = (new URL(document.location)).searchParams;
-    if (params.has('artist')) {
-        let artistName = params.get('artist');
+    if (params.has('artist')){
+        let artistName = params.get('artist'); 
+        console.log(artistName);
         let mbBaseURL = "https://musicbrainz.org/ws/2/";
         let mbResource = "artist?query=";
-        let queryURL = mbBaseURL + mbResource + artistName;
+        let queryURL = mbBaseURL + mbResource + artistName; 
+        console.log(queryURL);
         httpGet(queryURL, getMBID);
     }
 }
+function queryAlbums(artistMBID) {
+    let mbBaseURL = "https://musicbrainz.org/ws/2/";
+    let mbBrowse = "release-group?artist=";
+    let mbType = "&limit=200";
+    let queryURL = mbBaseURL + mbBrowse + artistMBID + mbType;
+    httpGet(Browse, getAlbData);
+}
+
 function httpGet(theURL, cbFunction) {
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", theURL);
@@ -21,20 +31,16 @@ function httpGet(theURL, cbFunction) {
 }
 function getMBID(xhttp) {
     let retrievedData = xhttp.responseXML; 
-    let artistData = retrievedData.getElementsByTagName("artist")[0];
-    let artistName = artistData.getElementsByTagName("name")[0].innerHTML; 
-    let artistMBID = artistData.id;
+    console.log(retrievedData);
+    let artistData = retrievedData.getElementsByTagName("artist")[0]; 
+    console.log(artistData);
+    let artistName = artistData.getElementsByTagName('name')[0].innerHTML; 
+    console.log(artistName);
+    let artistMBID = artistData.id; 
+    console.log(artistMBID);
     queryAlbums(artistMBID);
 }
-function queryAlbums(artistMBID) {
-        let mbBaseURL = 'https://musicbrainz.org/ws/2/';
-        let mbSearch = 'release-group?artist=';
-        let mbType = '&type=album|ep';
-        let queryURL = mbBaseURL + mbSearch + artistMBID + mbType;
-        httpGet(queryURL, getData);
-    }
-function getData(xhttp) {
-    let retrievedData = xhttp.responseXML;
+/*let  = xhttp.responseXML;
     let releases = retrievedData.getElementsByTagName('release-group');
     let disco = document.getElementById('disco');
     let album_table = "<table><tr><th>Album Name</th><th>Released in</th></tr>";
@@ -44,7 +50,35 @@ function getData(xhttp) {
     let dates = call.getElementsByTagName("first-release-date")[0].innerHTML;
     album_table += `<tr><td>${names}</td><td>${dates}"</td></tr>`;
 }
-album_table += "</table>";
-disco.innerHTML= album_table;
+album_table += "</table>"; */
+function getAlbData(xhttp) {
+    let retrievedData = xhttp.responseXML; 
+    console.log(retrievedData);
+    let releases = retrievedData.getElementsByTagName("release-group")[0]; 
+    console.log(releases);
+    let releaseGroups = releases.getElementsByTagName("release-group");
+    let releaseCount = releaseGroups.length;
+    document.getElementById("albums").innerHTML = "There are " + releaseCount + " albums released."; 
+    console.log(releaseCount);
+    var AlbumNames = []; 
+    var AlbumDates = [];
+
+    for (let index = 0; index < releaseCount; index++) {
+        let albumData = releases.getElementsByTagName("release-group")[index];
+        let albumName = albumData.getElementsByTagName('title')[0].innerHTML; 
+        console.log(albumName);
+        AlbumNames[index] = albumName;
+        let albumDate = albumData.getElementsByTagName('first-release-date')[0].innerHTML; 
+        console.log(albumDate);
+        AlbumDates[index] = albumDate;
+    }
+    console.log(AlbumNames); console.log(AlbumDates);
+    album_table = "<tr><th>Album Name</th><th>Release Date</th></tr>";
+    for (i = 0; i < AlbumNames.length; i++) {
+        album_table += "<tr><td> " + AlbumNames[i] + "</td>";
+        album_table += "<td> " + AlbumDates [i] + "</td></tr>";
+    }
+    let disco= document.getElementById('disco'); 
+    disco.innerHTML = album_table;
 }
 window.onload = queryArtist;
