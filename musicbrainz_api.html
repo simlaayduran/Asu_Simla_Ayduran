@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta charset="utf-8">
-   <title>Assignment 6 MusicBrainz</title>
-   <link rel="stylesheet" href="https://minicss.org/flavorFiles/mini-default.css">
- </head>
-<body>
-    <h1>Search For An Artist Through MusicBrainz</h1>
-    <div>
-        <form id="artist" method = 'GET'>
-            <label for = "name" >Search For An Artist</label>
-            <input type = "text" name = "artist" id = "name">
-            <input type = "submit" value = "Get Data">
-        </form>
-      <p id="discography"></p>
-    </div>
-  <script src='musicbrainzapi.js'></script>
-</body>
+    <head>
+        <title>Assignment 6 MusicBrainz</title>
+        <link rel="stylesheet" href="musicbrainz.css">
+        <meta name="viewport" content="width=3000, initial-scale=1"> 
+    </head>
+
+    <body><centre>
+        <div>
+            <h1>Search For An Artist Through MusicBrainz</h1>
+            <form method="GET">
+                <label for="name">Search For An Artist</label>
+                <input type="text" name="artist" id="name">
+                <input type="submit" value="Get all Data">
+            </form>
+
+          
+            <p id="disco"></p>
+
+        </div>
+    </centre>
+    </body>
+<script src="musicbrainzapi.js"></script>
+
+
 </html>
 
 
