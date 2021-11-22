@@ -44,7 +44,7 @@ function getData(xhttp) {
     let dates = call.getElementsByTagName("first-release-date")[0].innerHTML;
     album_table += `<tr><td>${names}</td><td>${dates}"</td></tr>`;
 }
- album_table += "</table>";
+// album_table += "</table>";
 
 discography.innerHTML= album_table;
 
