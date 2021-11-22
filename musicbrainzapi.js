@@ -10,13 +10,6 @@ function queryArtist() {
         httpGet(queryURL, getMBID);
     }
 }
-function queryAlbums() {
-        let mbBaseURL = 'https://musicbrainz.org/ws/2/';
-        let mbSearch = 'release-group?artist=';
-        let mbType = '&type=album|ep';
-        let queryURL = mbBaseURL + mbSearch + artistMBID + mbType;
-        httpGet(queryURL, getData);
-    }
 function httpGet(uRL, cbFunction) {
     let xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", uRL);
@@ -38,8 +31,13 @@ function getMBID(xhttp) {
     console.log(artistMBID);
     qAlbums(artistMBID);
 }
-
-
+function queryAlbums() {
+        let mbBaseURL = 'https://musicbrainz.org/ws/2/';
+        let mbSearch = 'release-group?artist=';
+        let mbType = '&type=album|ep';
+        let queryURL = mbBaseURL + mbSearch + artistMBID + mbType;
+        httpGet(queryURL, getData);
+    }
 function getData(xhttp) {
     let retrievedData = xhttp.responseXML;
     console.log(retrievedData);
@@ -56,7 +54,7 @@ function getData(xhttp) {
 }
 
 
-discography.innerHTML=theList;
+discography.innerHTML=List;
 
 
 }
