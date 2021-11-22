@@ -12,14 +12,14 @@
     <h1>Search For An Artist Through MusicBrainz</h1>
 
     <div>
-        <form method = 'GET'>
+        <form id="artist" method = 'GET'>
             <label for = 'name'>Search For An Artist</label>
             <input type = 'text' id = 'name' name = 'artist' >
             <input type = 'submit' value = 'Get Data'>
         </form>
     </div>
     <table id='discography'></table>
-   
+     <script src="musicbrainzapi.js"></script>
 </body>
-     <script> src="musicbrainzapi.js"type="text/JavaScript"> </script>
+   
 </html>
