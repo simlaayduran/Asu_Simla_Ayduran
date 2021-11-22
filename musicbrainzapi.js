@@ -10,9 +10,9 @@ function queryArtist() {
         httpGet(queryURL, getMBID);
     }
 }
-function httpGet(uRL, cbFunction) {
+function httpGet(theURL, cbFunction) {
     let xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", uRL);
+    xmlHttp.open("GET", theURL);
     xmlHttp.send();
     xmlHttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
