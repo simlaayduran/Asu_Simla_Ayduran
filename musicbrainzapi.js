@@ -42,7 +42,6 @@ function getMBID(xhttp) {
 }
 /*let  = xhttp.responseXML;
     let releases = retrievedData.getElementsByTagName('release-group');
-    let disco = document.getElementById('disco');
     let album_table = "<table><tr><th>Album Name</th><th>Released in</th></tr>";
     for (i = 0; i < releases.length; i++){
     let call = releases[i];
@@ -56,14 +55,13 @@ function getAlbData(xhttp) {
     console.log(retrievedData);
     let releases = retrievedData.getElementsByTagName("release-group")[0]; 
     console.log(releases);
-    let releaseGroups = releases.getElementsByTagName("release-group");
-    let releaseCount = releaseGroups.length;
-    document.getElementById("albums").innerHTML = "There are " + releaseCount + " albums released."; 
-    console.log(releaseCount);
+    let groups = releases.getElementsByTagName("release-group");
+    let count = groups.length;
+    console.log(count);
     var AlbumNames = []; 
     var AlbumDates = [];
 
-    for (let index = 0; index < releaseCount; index++) {
+    for (let index = 0; index < count; index++) {
         let albumData = releases.getElementsByTagName("release-group")[index];
         let albumName = albumData.getElementsByTagName('title')[0].innerHTML; 
         console.log(albumName);
