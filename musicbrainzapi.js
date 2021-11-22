@@ -1,3 +1,4 @@
+
 function queryArtist() {
     let params = (new URL(document.location)).searchParams;
     if (params.has('artist')) {
@@ -10,9 +11,17 @@ function queryArtist() {
         httpGet(queryURL, getMBID);
     }
 }
-function httpGet(theURL, cbFunction) {
+function queryAlbums() {
+        let mbBaseURL = 'https://musicbrainz.org/ws/2/';
+        let mbSearch = 'release-group?artist=';
+        let mbType = '&type=album|ep';
+        let queryURL = mbBaseURL + mbSearch + artistMBID + mbType;
+        httpGet(queryURL, getData);
+    }
+
+function httpGet(uRL, cbFunction) {
     let xmlHttp = new XMLHttpRequest();
-    xmlHttp.open("GET", theURL);
+    xmlHttp.open("GET", uRL);
     xmlHttp.send();
     xmlHttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -31,13 +40,7 @@ function getMBID(xhttp) {
     console.log(artistMBID);
     qAlbums(artistMBID);
 }
-function queryAlbums() {
-        let mbBaseURL = 'https://musicbrainz.org/ws/2/';
-        let mbSearch = 'release-group?artist=';
-        let mbType = '&type=album|ep';
-        let queryURL = mbBaseURL + mbSearch + artistMBID + mbType;
-        httpGet(queryURL, getData);
-    }
+
 function getData(xhttp) {
     let retrievedData = xhttp.responseXML;
     console.log(retrievedData);
