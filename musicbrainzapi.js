@@ -58,23 +58,23 @@ function getAlbData(xhttp) {
     let groups = releases.getElementsByTagName("release-group");
     let count = groups.length;
     console.log(count);
-    var AlbumNames = []; 
-    var AlbumDates = [];
+    var names = []; 
+    var dates = [];
 
     for (let index = 0; index < count; index++) {
-        let albumData = releases.getElementsByTagName("release-group")[index];
-        let albumName = albumData.getElementsByTagName('title')[0].innerHTML; 
-        console.log(albumName);
-        AlbumNames[index] = albumName;
-        let albumDate = albumData.getElementsByTagName('first-release-date')[0].innerHTML; 
-        console.log(albumDate);
-        AlbumDates[index] = albumDate;
+        let data = releases.getElementsByTagName("release-group")[index];
+        let name = data.getElementsByTagName('title')[0].innerHTML; 
+        console.log(name);
+        names[index] = name;
+        let date = data.getElementsByTagName('first-release-date')[0].innerHTML; 
+        console.log(date);
+        dates[index] = date;
     }
-    console.log(AlbumNames); console.log(AlbumDates);
-    album_table = "<tr><th>Album Name</th><th>Release Date</th></tr>";
-    for (i = 0; i < AlbumNames.length; i++) {
-        album_table += "<tr><td> " + AlbumNames[i] + "</td>";
-        album_table += "<td> " + AlbumDates [i] + "</td></tr>";
+    console.log(names); console.log(dates);
+    album_table = "<tr><th>Album Name</th><th>Released in</th></tr>";
+    for (i = 0; i < names.length; i++) {
+        album_table += "<tr><td> " + names[i] + "</td>";
+        album_table += "<td> " + dates [i] + "</td></tr>";
     }
     let disco= document.getElementById('disco'); 
     disco.innerHTML = album_table;
