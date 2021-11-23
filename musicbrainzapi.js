@@ -69,7 +69,7 @@ function getAlbData(xhttp) {
         text += "<tr><td> " + AlbumNames[i] + "</td>";
         text += "<td> " + AlbumDates [i] + "</td></tr>";
     }
-    let placeholder = document.getElementById('placeholder'); 
-    placeholder.innerHTML = text;
+    let disco = document.getElementById('disco'); 
+    disco.innerHTML = text;
 }
 window.onload = queryArtist;
