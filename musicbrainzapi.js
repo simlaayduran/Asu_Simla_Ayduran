@@ -48,8 +48,7 @@ function getMBID(xhttp) {
     let names = call.getElementsByTagName("title")[0].innerHTML;
     let dates = call.getElementsByTagName("first-release-date")[0].innerHTML;
     album_table += `<tr><td>${names}</td><td>${dates}"</td></tr>`;
-}
-album_table += "</table>"; */
+} */
 function getAlbData(xhttp) {
     let retrievedData = xhttp.responseXML; 
     console.log(retrievedData);
@@ -58,23 +57,23 @@ function getAlbData(xhttp) {
     let groups = releases.getElementsByTagName("release-group");
     let count = groups.length;
     console.log(count);
-    var names = []; 
-    var dates = [];
+    var Names = []; 
+    var Dates = [];
 
     for (let i = 0; i < count; i++) {
         let data = releases.getElementsByTagName("release-group")[i];
         let name = data.getElementsByTagName('title')[0].innerHTML; 
         console.log(name);
-        names[i] = name;
+        Names[i] = name;
         let date = data.getElementsByTagName('first-release-date')[0].innerHTML; 
         console.log(date);
-        dates[i] = date;
+        Dates[i] = date;
     }
-    console.log(names); console.log(dates);
+    console.log(Names); console.log(Dates);
     album_table = "<tr><th>Released Album Name</th><th>Released in</th></tr>";
-    for (index= 0; index < names.length; index++) {
-        album_table += "<tr><td> " + names[index] + "</td>";
-        album_table += "<td> " + dates[index] + "</td></tr>";
+    for (index= 0; index < Names.length; index++) {
+        album_table += "<tr><td> " + Names[index] + "</td>";
+        album_table += "<td> " + Dates[index] + "</td></tr>";
     }
     let disco= document.getElementById('disco'); 
     disco.innerHTML = album_table;
