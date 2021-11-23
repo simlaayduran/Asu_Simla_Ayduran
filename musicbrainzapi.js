@@ -61,8 +61,7 @@ function getAlbData(xhttp) {
         console.log(date);
         Dates[index] = date;
     }
-    console.log(Names); 
-    console.log(Dates);
+    console.log(Names); console.log(Dates);
     album_table = "<tr><th>Released Album</th><th>Released in</th></tr>";
     for (i = 0; i < Names.length; i++) {
         album_table += "<tr><td> " + Names[i] + "</td>";
