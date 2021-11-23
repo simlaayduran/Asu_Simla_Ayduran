@@ -61,20 +61,20 @@ function getAlbData(xhttp) {
     var names = []; 
     var dates = [];
 
-    for (let index = 0; index < count; index++) {
-        let data = releases.getElementsByTagName("release-group")[index];
+    for (let i = 0; i < count; i++) {
+        let data = releases.getElementsByTagName("release-group")[i];
         let name = data.getElementsByTagName('title')[0].innerHTML; 
         console.log(name);
-        names[index] = name;
+        names[i] = name;
         let date = data.getElementsByTagName('first-release-date')[0].innerHTML; 
         console.log(date);
-        dates[index] = date;
+        dates[i] = date;
     }
     console.log(names); console.log(dates);
     album_table = "<tr><th>Album Name</th><th>Released in</th></tr>";
-    for (i = 0; i < names.length; i++) {
-        album_table += "<tr><td> " + names[i] + "</td>";
-        album_table += "<td> " + dates [i] + "</td></tr>";
+    for (row= 0; row < names.length; row++) {
+        album_table += "<tr><td> " + names[row] + "</td>";
+        album_table += "<td> " + dates [row] + "</td></tr>";
     }
     let disco= document.getElementById('disco'); 
     disco.innerHTML = album_table;
