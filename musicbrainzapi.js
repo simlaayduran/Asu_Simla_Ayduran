@@ -89,6 +89,7 @@ function getAlbum(xhttp) {
     console.log(releaselist);
     let releaseGroups = releaselist.getElementsByTagName("release-group");
     let releaseCount = releaseGroups.length;
+    document.getElementById("albums").innerHTML = "There are " + releaseCount + " albums released."; 
     console.log(releaseCount);
     var AlbumNames = []; 
     var AlbumDates = [];
@@ -102,14 +103,13 @@ function getAlbum(xhttp) {
         console.log(albumDate);
         AlbumDates[index] = albumDate;
     }
-    console.log(AlbumNames); 
-    console.log(AlbumDates);
+    console.log(AlbumNames); console.log(AlbumDates);
     text = "<tr><th>Album Name</th><th>Release Date</th></tr>";
     for (i = 0; i < AlbumNames.length; i++) {
         text += "<tr><td> " + AlbumNames[i] + "</td>";
         text += "<td> " + AlbumDates [i] + "</td></tr>";
     }
-    let disco = document.getElementById('disco'); 
-    disco.innerHTML = text;
+    let placeholder = document.getElementById('placeholder'); 
+    placeholder.innerHTML = text;
 }
 window.onload = queryArtist;
