@@ -49,7 +49,7 @@ function getMBID(xhttp) {
     let dates = call.getElementsByTagName("first-release-date")[0].innerHTML;
     album_table += `<tr><td>${names}</td><td>${dates}"</td></tr>`;
 } */
-
+/*
 function getAlbum(xhttp) {
     let retrievedData = xhttp.responseXML; 
     console.log(retrievedData);
@@ -79,5 +79,40 @@ function getAlbum(xhttp) {
     }
     let disco = document.getElementById('disco'); 
     disco.innerHTML = album_table;
-}
+} 
+*/
+ let retrievedData=xhttp.responseXML;
+                releases=retrievedData.getElementsByTagName("release-group");
+                let placeholder = document.getElementById('placeholder');
+                let tableHTML = 
+                `
+                    <table>
+                            <tr>
+                                <th>Album Name</th>
+                                <th>Released:</th>
+                            </tr>
+                `; 
+                let albums;
+                let albumName;
+                let releaseDate;
+                for(row=0; row<releases.length;row++)
+                {
+                    Albums = releases[row];
+                    albumName = Albums.getElementsByTagName("title")[0].innerHTML;
+                    releaseDate = Albums.getElementsByTagName("first-release-date")[0].innerHTML;
+                    tableHTML += 
+                    `
+                    <tr>
+                        <td>${albumName}</td>
+                        <td>${releaseDate}</td>
+                    </tr>
+                    `;
+                }
+                
+                tableHTML += `
+                </table>
+                `;
+                placeholder.innerHTML = tableHTML;
+
+            }
 window.onload = queryArtist;
