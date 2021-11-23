@@ -41,7 +41,7 @@ function getMBID(xhttp) {
     queryAlbums(artistMBID);
 }
 
-function getAlbum(xhttp) {
+function getAlbData(xhttp) {
     let data = xhttp.responseXML; 
     console.log(data);
 
