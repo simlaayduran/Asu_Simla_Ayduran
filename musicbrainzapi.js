@@ -42,34 +42,33 @@ function getMBID(xhttp) {
 }
 
 function getAlbData(xhttp) {
-    let data = xhttp.responseXML; 
-    console.log(data);
+   let retrievedData = xhttp.responseXML; 
+    console.log(retrievedData);
+    let releases = retrievedData.getElementsByTagName("release-group-list")[0]; 
+    console.log(releases);
+    let groups = releases.getElementsByTagName("release-group");
+    let count = groups.length;
+    console.log(count);
+    var Names = []; 
+    var Dates = [];
 
-    let releaselist = data.getElementsByTagName("release-group-list")[0]; 
-    console.log(releaselist);
-    let releaseGroups = releaselist.getElementsByTagName("release-group");
-    let releaseCount = releaseGroups.length;
-    document.getElementById("albums").innerHTML = "There are " + releaseCount + " albums released."; 
-    console.log(releaseCount);
-    var AlbumNames = []; 
-    var AlbumDates = [];
-
-    for (let index = 0; index < releaseCount; index++) {
-        let albumData = releaselist.getElementsByTagName("release-group")[index];
-        let albumName = albumData.getElementsByTagName('title')[0].innerHTML; 
-        console.log(albumName);
-        AlbumNames[index] = albumName;
-        let albumDate = albumData.getElementsByTagName('first-release-date')[0].innerHTML; 
-        console.log(albumDate);
-        AlbumDates[index] = albumDate;
+    for (let index = 0; index < count; index++) {
+        let data = releases.getElementsByTagName("release-group")[index];
+        let name = data.getElementsByTagName('title')[0].innerHTML; 
+        console.log(name);
+        Names[index] = name;
+        let date = data.getElementsByTagName('first-release-date')[0].innerHTML; 
+        console.log(date);
+        Dates[index] = date;
     }
-    console.log(AlbumNames); console.log(AlbumDates);
-    text = "<tr><th>Album Name</th><th>Release Date</th></tr>";
-    for (i = 0; i < AlbumNames.length; i++) {
-        text += "<tr><td> " + AlbumNames[i] + "</td>";
-        text += "<td> " + AlbumDates [i] + "</td></tr>";
+    console.log(Names); 
+    console.log(Dates);
+    album_table = "<tr><th>Released Album</th><th>Released in</th></tr>";
+    for (i = 0; i < Names.length; i++) {
+        album_table += "<tr><td> " + Names[i] + "</td>";
+        album_table += "<td> " + Dates [i] + "</td></tr>";
     }
     let disco = document.getElementById('disco'); 
-    disco.innerHTML = text;
+    disco.innerHTML = album_table;
 }
 window.onload = queryArtist;
