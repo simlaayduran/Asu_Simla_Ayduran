@@ -74,7 +74,7 @@ function getAlbData(xhttp) {
     album_table = "<tr><th>Album Name</th><th>Released in</th></tr>";
     for (index= 0; index < names.length; index++) {
         album_table += "<tr><td> " + names[index] + "</td>";
-        album_table += "<td> " + dates [index] + "</td></tr>";
+        album_table += "<td> " + dates[index] + "</td></tr>";
     }
     let disco= document.getElementById('disco'); 
     disco.innerHTML = album_table;
