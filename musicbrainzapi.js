@@ -72,9 +72,9 @@ function getAlbData(xhttp) {
     }
     console.log(names); console.log(dates);
     album_table = "<tr><th>Album Name</th><th>Released in</th></tr>";
-    for (row= 0; row < names.length; row++) {
-        album_table += "<tr><td> " + names[row] + "</td>";
-        album_table += "<td> " + dates [row] + "</td></tr>";
+    for (index= 0; index < names.length; index++) {
+        album_table += "<tr><td> " + names[index] + "</td>";
+        album_table += "<td> " + dates [index] + "</td></tr>";
     }
     let disco= document.getElementById('disco'); 
     disco.innerHTML = album_table;
