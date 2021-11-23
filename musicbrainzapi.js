@@ -54,9 +54,9 @@ function getAlbData(xhttp) {
 
     for (let index = 0; index < count; index++) {
         let data = releases.getElementsByTagName("release-group")[index];
-        let name = data.getElementsByTagName('title')[0].innerHTML; 
-        console.log(name);
-        Names[index] = name;
+        let nameA = data.getElementsByTagName('title')[0].innerHTML; 
+        console.log(nameA);
+        Names[index] = nameA;
         let date = data.getElementsByTagName('first-release-date')[0].innerHTML; 
         console.log(date);
         Dates[index] = date;
