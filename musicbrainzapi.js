@@ -81,6 +81,7 @@ function getAlbum(xhttp) {
     disco.innerHTML = album_table;
 } 
 */
+function getAlbum(xhttp) {
  let retrievedData=xhttp.responseXML;
                 releases=retrievedData.getElementsByTagName("release-group");
                 let placeholder = document.getElementById('placeholder');
