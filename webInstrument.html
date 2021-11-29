@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Theremin</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+        <link rel="stylesheet" href="webInstrument.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzicato/0.6.4/Pizzicato.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
+
+        <script src="webInstrument.js" type="text/JavaScript"></script>
+        <script src="aux_functions.js" type="text/JavaScript"></script>
+
+    </head>
+        <body>
+        <h1>An online <span id="thereminLogo">Theremin</span> Web-based instrument</h1>
+
+        <div id="thereminZone"></div>
+
+        <div>
+            <p id="freq1"></p>
+            <p id="freq2"></p>
+            <p id="note1"></p>
+            <p id="note2"></p>
+        </div>
+
+        <form method="get" id="theform">
+            <fieldset>
+                <legend>Theremin Parameters</legend>
+
+                <label for="semitone">Interval:</label>
+
+                <select name="semitone" id="semitone" >
+                    <option value="0">Unison</option>
+                    <option value="4">Major Third</option>
+                    <option value="3">Minor Third</option>
+                    <option value="7">Perfect Fifth</option>
+                    <option value="12">Perfect Octave</option>
+                </select>
+
+                <label for="oscillator">Oscillator:</label>
+
+                <select name="oscillator" id="oscillator">
+                    <option value="sine">Sine Wave</option>
+                    <option value="square">Square Wave</option>
+                    <option value="triangle">Triangle Wave</option>
+                    <option value="sawtooth">Sawtooth Wave</option>
+                </select>
+
+                <label for="minimum_frequency">Minimum Frequency Range (110Hz - 220Hz):</label>
+                <input type="number" name="minimum" id="minimum_frequency" min="110" max="220" value="110">
+
+                <label for="maximum_frequency">Maximum Frequency (440Hz - 1760Hz):</label>
+                <input type="number" name="maximum" id="maximum_frequency" min="440" max="1760" value="440">
+
+                <input type="submit" name="reload" id="reload" value="Reload Theremin">
+            </fieldset>
+        </form>
+    </body>
+</html>
