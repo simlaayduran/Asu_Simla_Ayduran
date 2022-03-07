@@ -1,2 +1,1 @@
-## Asu Simla Ayduran
-### My first README file for MUMT 301
+### Projects made using HTML, JavaScrpit and CSS
