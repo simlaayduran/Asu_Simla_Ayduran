@@ -1,1 +1,1 @@
-### Projects made using HTML, JavaScrpit and CSS
+# Projects made using HTML, JavaScrpit and CSS
